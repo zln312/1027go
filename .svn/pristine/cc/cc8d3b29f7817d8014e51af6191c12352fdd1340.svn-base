@@ -1,9 +1,0 @@
-<import src="../../../../components/appToast/appToast.wxml" />
-<template is="toast" data="{{ ..._toast_ }}" />
-<view class="container_page">
-      <view class="page-content">
-            <view class="account-label">账户余额(元)</view>
-             <view class="account-balance">{{blanceDate}}</view>    
-      </view>
-      <view class="page-banlance-btn" bindtap="withdrawals">提现</view>
-</view>

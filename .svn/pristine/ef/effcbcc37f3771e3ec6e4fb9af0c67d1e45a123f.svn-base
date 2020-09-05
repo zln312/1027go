@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "default-list":"/components/default-list/default-list"
-  },
-  "navigationBarTitleText": "退款售后"
-}

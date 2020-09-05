@@ -1,7 +1,0 @@
-<template name="thumbs-up">
-       <cover-view class='give_thumbs_up'  >
-        <cover-image src='{{image}}' catchtap='toggleThumbs'></cover-image>
-        <cover-view>{{count}}</cover-view>
-      </cover-view>
-
-</template>

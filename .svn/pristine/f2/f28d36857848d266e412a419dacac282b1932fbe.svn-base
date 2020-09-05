@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "component-emoji": "/components/emoji/emoji",
-    "k-scroll": "../../components/wx-pulltorefresh-view/wx-pulltorefresh-view"
-  }
-}
-
