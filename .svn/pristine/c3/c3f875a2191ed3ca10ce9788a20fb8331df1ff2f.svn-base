@@ -1,0 +1,117 @@
+/* pages/privacyPolicy/privacyPolicy.wxss */
+
+.container {
+  font-family: "STSong";
+  width: 90%;
+  margin: 0 auto;
+}
+
+.policy-title {
+  font-size: 40rpx;
+  text-align: center;
+  font-weight: bold ;
+  word-spacing: -7rpx;
+  
+}
+.update-time  {
+  font-size: 32rpx;
+  margin-top: 30rpx;
+  margin-bottom: 20rpx;
+  text-align: right;
+}
+
+.heard-1 {
+  font-size: 39rpx;
+  font-weight: bolder;
+  margin-bottom: 40rpx;
+  margin-top: 40rpx;
+}
+
+.content {
+  font-size: 32rpx;
+  text-indent:64rpx;
+   margin-top: 20rpx;
+}
+.online {
+  display: inline;
+  text-decoration: underline;
+  font-weight: bolder;
+
+}
+.blue-italic {
+
+  font-style: italic;
+  color: blue;
+}
+
+.italic {
+  font-style: italic;
+}
+.heard-2 {
+  display: inline;
+  font-size: 32rpx;
+  font-weight: bolder;
+}
+
+
+.p-strong {
+   font-weight: bolder;
+   
+}
+
+.under-line{
+   text-decoration: underline;
+}
+
+.space-two{
+   text-indent:64rpx;
+}
+
+.dis-ib {
+  display: inline;
+}
+ 
+ .num-title{
+   font-size: 32rpx;
+  text-indent:64rpx;
+  font-weight: bolder;
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+ }
+.m-t-20{
+ margin-top: 20rpx;
+ }
+.m-t-30{
+ margin-top: 30rpx;
+ }
+.m-t-40{
+ margin-top: 40rpx;
+ }
+
+.m-t-50{
+ margin-top: 50rpx;
+ }
+.m-t-60{
+ margin-top: 60rpx;
+ }
+
+.m-b-20{
+ margin-bottom: 20rpx;
+}
+
+.m-b-30{
+ margin-bottom: 30rpx;
+}
+
+.m-b-40{
+ margin-bottom: 40rpx;
+}
+
+.m-b-50{
+  margin-bottom: 50rpx;
+}
+
+.m-b-60 {
+  margin-bottom: 60rpx;
+}
+

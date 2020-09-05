@@ -1,0 +1,190 @@
+/* pages/optSelection/opt.wxss */
+.container_page {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;  
+}
+.divider-line{
+  width: 100%;
+  height: 1rpx;
+  background-color: aliceblue;
+}
+
+/*  加载更多   */
+.weui-loading {
+  margin: 0 5px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
+  background-size: 100%;
+}
+.weui-loadmore {
+  width: 65%;
+  margin: 1.5em auto;
+  line-height: 1.6em;
+  font-size: 14px;
+  text-align: center;
+  additive-symbols: row;
+  bottom: 0;
+  position: fixed;
+}
+.weui-loadmore__tips {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.optimal-content{
+   width: 100%;
+   height: 100vh;
+}
+.opt-item-content{
+  width: 95%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  background-color:white;
+  border-radius: 24rpx;
+  border: 1px solid rgb(244, 244, 244);
+}
+
+.skill-item-header {
+  width: 100%;
+  height: 54rpx;
+  flex-direction: row;
+  display: flex;
+  margin: 16rpx;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-item-header .skill-logo {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 24rpx;
+  margin-right: 12rpx;
+}
+
+.skill-item-header .skill-logo image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.skill-item-header .good-title {
+  width: 80%;
+  height: 100%;
+  font-size: 28rpx;
+  color: black;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-item-header .skill-state {
+  width: 20%;
+  height: 100%;
+  font-size: 28rpx;
+  color: rgb(164, 164, 164);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 32rpx;
+  margin-left: 16rpx;
+}
+.opt-item-title{
+  width: 95%;
+  font-size: 28rpx;
+  font-style: normal;
+  color:#0091b0;
+  display: flex;
+  align-items:flex-start; 
+  margin-left: 16rpx;
+  margin-right: 16rpx;
+  flex-wrap: wrap;   
+}
+.divider-line1{
+  width: 95%;
+  height: 2rpx;
+  background-color: aliceblue;
+}
+.opt-item-option-content-group{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+  align-items:center; 
+}
+.opt-item-option-content-group .option-title{
+  width: 100%;
+  font-size: 24rpx;
+  font-style: normal;
+  color:rgb(164, 164, 164);
+  display: flex;
+  justify-content:flex-start;
+  align-items:center;
+  flex-wrap: wrap;     
+}
+
+.divider-line-dashed {
+  width: 95%;
+  border: 1rpx dashed #e3f2fd;
+}
+ .label-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.label-content .label-name {
+  width: 20%;
+  font-size: 24rpx;
+  color: red;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.label-content .label-tx {
+  width: 80%;
+  font-size: 24rpx;
+  color: black;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.skill-item-footer {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;      
+}
+
+.skill-item-footer .ticket-status {
+  font-size: 32rpx;
+  color: #0091b0;
+  width: 20%;
+  background-color: #bef4ff;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 16rpx;
+  border: 1px solid rgb(244, 244, 244);  
+}

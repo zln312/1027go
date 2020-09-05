@@ -1,0 +1,39 @@
+{
+  "name": "living_1027go_new",
+  "version": "1.0.0",
+  "lockfileVersion": 1,
+  "requires": true,
+  "dependencies": {
+    "cos-wx-sdk-v5": {
+      "version": "0.7.7",
+      "resolved": "https://registry.npmjs.org/cos-wx-sdk-v5/-/cos-wx-sdk-v5-0.7.7.tgz",
+      "integrity": "sha512-X1L/HuMjKTMXn0nSPEjjtgVTdAHaIIw2yylPz9Ri7hY3JdD2cRFpOp8sMuw7jAfiaMEYVM1NqdP64ij9UUAiDQ==",
+      "requires": {
+        "xmldom": "^0.1.27"
+      }
+    },
+    "jsbn": {
+      "version": "1.1.0",
+      "resolved": "https://registry.npmjs.org/jsbn/-/jsbn-1.1.0.tgz",
+      "integrity": "sha1-sBMHyym2GKHtJux56RH4A8TaAEA="
+    },
+    "miniprogram-sm-crypto": {
+      "version": "0.0.6",
+      "resolved": "https://registry.npmjs.org/miniprogram-sm-crypto/-/miniprogram-sm-crypto-0.0.6.tgz",
+      "integrity": "sha512-TqCSNzO2gi8uEPO+AECn00hlpPeRY9LeEJr0Ouxd/f8D0SnI6o36imVIQ2QmU4K1fvGmzyKfhLrVfNIwcTg6HQ==",
+      "requires": {
+        "jsbn": "^1.1.0"
+      }
+    },
+    "tim-wx-sdk": {
+      "version": "2.0.9",
+      "resolved": "https://registry.npmjs.org/tim-wx-sdk/-/tim-wx-sdk-2.0.9.tgz",
+      "integrity": "sha512-V99Og2fnkamwzfCAJ9rVLkpnFP9NCNzIYwbPdY5zt74058UIaYuQDSAG6u6OkQ83vvqJb/fMB62ENMCPQv7pDw=="
+    },
+    "xmldom": {
+      "version": "0.1.27",
+      "resolved": "https://registry.npmjs.org/xmldom/-/xmldom-0.1.27.tgz",
+      "integrity": "sha1-1QH5ezvbQDr4757MIFcxh6rawOk="
+    }
+  }
+}

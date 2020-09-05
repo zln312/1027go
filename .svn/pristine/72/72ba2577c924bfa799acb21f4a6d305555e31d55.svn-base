@@ -1,0 +1,104 @@
+/* page/personal-center/pages/receiving-address/receiving-address.wxss */
+
+
+.center {
+	min-height: 100vh;
+	padding-top: 20rpx;
+}
+
+/* .address-card {
+
+} */
+.input-box {
+	padding-top: 28rpx;
+	padding-bottom: 28rpx;
+}
+.phone-value {
+text-align: left;
+padding: 0;
+height: 40rpx;
+line-height: 40rpx;
+background-color: #fff;
+}
+
+.input-box-l {
+	width: 140rpx;
+	line-height: 40rpx;
+	margin-right: 40rpx;
+	color: #626466;
+	font-size: 28rpx;
+}
+
+.input-box-r {
+	height: 40rpx;
+	color: #313233;
+	line-height: 40rpx;
+}
+
+.input-box-picker {
+	line-height: 40rpx;
+}
+
+.img-32 {
+	width: 32rpx;
+	height: 32rpx;
+}
+
+.img-28 {
+	width: 28rpx;
+	height: 28rpx;
+}
+
+
+
+
+.detailed-address text {
+	display: block;
+	visibility: hidden;
+	/* word-break:break-all; */
+	word-wrap: break-word;
+	text-align: justify;
+}
+
+.textarea_style {
+	display: block;
+	height: 34rpx;
+	width: auto;
+	line-height: 34rpx;
+	overflow: hidden;
+}
+
+
+
+.defaultAddress {
+	padding-top: 28rpx;
+	padding-bottom: 28rpx;
+}
+
+
+
+
+
+
+.add-address {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 80rpx;
+}
+
+.add-address>button {
+	padding: 0;
+	background: #F6B352;
+	box-shadow: 0px 8rpx 16rpx 0px #F6B352;
+	border-radius: 64rpx;
+	line-height: 80rpx;
+	color: #fff;
+}
+
+
+
+
+button::after {
+	display: none;
+}

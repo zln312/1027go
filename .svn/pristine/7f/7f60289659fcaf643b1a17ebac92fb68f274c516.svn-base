@@ -1,0 +1,154 @@
+/* pages/red_paper/index.wxss */
+
+.container_page {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  flex-direction: column;
+}
+
+.red_total_money {
+  width: 95%;
+  height: 114rpx;
+  margin: 16rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.red_total_money .label {
+  height: 114rpx;
+  width: 25%;
+  display: flex;
+  margin-left: 32rpx;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.red_total_money_label {
+  font-size: 24rpx;
+  margin-left: 32rpx;
+  color: rgb(94, 94, 94);
+  justify-content: left;
+  align-items: center;
+}
+
+.red_total_money .unit {
+  height: 114rpx;
+  width: 10%;
+  display: flex;
+  margin-right: 32rpx;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.red_total_money .weui-input {
+  height: 114rpx;
+  width: 75%;
+ 
+  text-align: right;
+  justify-content: right;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.red_total_num {
+  width: 95%;
+  height: 114rpx;
+  margin: 16rpx;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.red_total_num .label {
+  height: 114rpx;
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  margin-left: 32rpx;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(92, 63, 63);
+}
+
+.red_total_num .unit {
+  height: 114rpx;
+  width: 10%;
+  display: flex;
+  margin-right: 32rpx;
+  justify-content: center;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.red_total_num .weui-input {
+  height: 114rpx;
+  width: 75%;
+
+  text-align: right;
+  justify-content: right;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.red_total_text {
+  width: 95%;
+  height: 114rpx;
+  margin: 16rpx;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.red_total_text .weui-input {
+  height: 114rpx;
+  width: 88%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  font-size: 32rpx;
+  color: rgb(44, 44, 44);
+}
+
+.amount_of_money {
+  height: 114rpx;
+  width: 95%;
+  margin: 16rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount_of_money .label {
+  font-weight: 600;
+  font-size: 64rpx;
+  color: rgb(44, 44, 44);
+}
+
+.amount_of_btn {
+  width: 95%;
+  margin: 16rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.amount_of_btn button {
+  font-weight: 400;
+  width: 50%;
+  background-color: red;
+  font-size: 32rpx;
+  color: white;
+}

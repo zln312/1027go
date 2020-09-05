@@ -1,0 +1,51 @@
+{
+  "_from": "tim-wx-sdk@2.0.9",
+  "_id": "tim-wx-sdk@2.0.9",
+  "_inBundle": false,
+  "_integrity": "sha512-V99Og2fnkamwzfCAJ9rVLkpnFP9NCNzIYwbPdY5zt74058UIaYuQDSAG6u6OkQ83vvqJb/fMB62ENMCPQv7pDw==",
+  "_location": "/tim-wx-sdk",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "tim-wx-sdk@2.0.9",
+    "name": "tim-wx-sdk",
+    "escapedName": "tim-wx-sdk",
+    "rawSpec": "2.0.9",
+    "saveSpec": null,
+    "fetchSpec": "2.0.9"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/tim-wx-sdk/-/tim-wx-sdk-2.0.9.tgz",
+  "_shasum": "617c2725d7ba4be40625750cbd9b8098470bad01",
+  "_spec": "tim-wx-sdk@2.0.9",
+  "_where": "F:\\workspace\\WeChatProjects\\living_1027go_new",
+  "author": {
+    "name": "Tencent Cloud Terminal R&D Center"
+  },
+  "bugs": {
+    "url": "https://github.com/tencentyun/TIMSDK/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Tencent Cloud IM SDK for WX mini app",
+  "homepage": "https://github.com/tencentyun/TIMSDK#readme",
+  "keywords": [
+    "即时通信",
+    "IM",
+    "腾讯云IM",
+    "即时通讯",
+    "通信"
+  ],
+  "license": "ISC",
+  "main": "tim-wx.js",
+  "name": "tim-wx-sdk",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/tencentyun/TIMSDK.git"
+  },
+  "version": "2.0.9"
+}

@@ -1,0 +1,21 @@
+<!--pages/advert/advert.wxml-->
+<import src="../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<view class="page" class="advert-page">
+
+  <!-- <view class='content'>
+    <video id="myVideo" src="{{url}}"
+      initial-time="1"
+      bindwaiting="videBindwaiting"
+     class="video-content" autoplay="{{true}}" object-fit='fill' direction="0" muted bindfullscreenchange="fullScreen" show-play-btn="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" bindended="playBindended"
+      binderror="playBinderror" bindfullscreenchange="bindfullscreenchange" bindtimeupdate="bindtimeupdate"  controls="{{false}}"></video>
+
+  </view> -->
+    <view class='content'>
+    <video id="myVideo" src="{{url}}"
+      initial-time="1"
+     class="video-content" autoplay="{{true}}" object-fit='fill' direction="0" muted bindfullscreenchange="fullScreen" show-play-btn="{{false}}" show-center-play-btn="{{false}}" enable-progress-gesture="{{false}}" bindended="playBindended"
+      binderror="playBinderror" bindfullscreenchange="bindfullscreenchange" bindtimeupdate="bindtimeupdate"  controls="{{false}}"></video>
+  </view>
+
+</view>

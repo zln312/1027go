@@ -1,0 +1,57 @@
+<!--page/personal-center/pages/merchant-refund-details/merchant-refund-details.wxml-->
+
+
+
+<view wx:if="{{show}}" class="bg-F2F4F5 min-height-100vh">
+
+	<view class="container-fluid bg-F6B352 pd-t-40 pd-b-40 color-fff" style="background-color:{{detail.status===1?'#F6B352':'red'}}">
+		<view class="font-size-32 mg-b-20">{{detail.status===1?'退款申请已发起，请耐心等待商家处理':(detail.status===10?'客服介入':(detail.status===2||detail.status===4?'退款成功':(detail.status===5||detail.status===3?'退款关闭':'已拒绝退款')))}}</view>
+		<view wx:if="{{detail.status===1}}" class="font-size-24">处理时间： {{detail.deadline}}</view>
+	</view>
+
+
+
+	<view class="container-fluid bg-fff pd-t-40 " style="padding-bottom: 24rpx">
+		<view class="row flex-nowrap align-items-start bo-b-F0F2F5 pd-b-40" style="margin-bottom: 40rpx;">
+			<image class="img-01 flex-shrink-0" src="{{detail.photoUrl}}"></image>
+			<view class="font-size-28 flex-fill mg-l-32">{{detail.goodsName}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466 mg-b-16">
+			<view class=" flex-shrink-0">退款原因：</view>
+			<view class=" flex-fill mg-l-32">{{problem}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466 mg-b-16">
+			<view class=" flex-shrink-0">退款金额：</view>
+			<view class=" flex-fill mg-l-32">¥ {{detail.refundMoney}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466 mg-b-16">
+			<view class=" flex-shrink-0">申请时间：</view>
+			<view class=" flex-fill mg-l-32">{{creatAt}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466 mg-b-16">
+			<view class=" flex-shrink-0">订单编号：</view>
+			<view class=" flex-fill mg-l-32">{{detail.oid}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466 mg-b-16">
+			<view class=" flex-shrink-0">退款说明：</view>
+			<view class=" flex-fill mg-l-32 text-justify" style="work-break:break-all">{{detail.refundExplain}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start justify-content-between pd-t-20 pd-b-24 font-size-24 color-626466 mg-b-16">
+			<view wx:for="{{images}}">
+				<image class="img-02 flex-shrink-0" src="{{item}}"></image>
+
+			</view>
+			<view wx:if="{{imagesLength==2}}" style="width:196rpx"></view>
+
+		</view>
+
+	</view>
+
+
+	<view wx:if="{{detail.status===1}}" class="container-fluid row flex-nowrap align-items-center justify-content-between add-address pd-t-20 pd-b-20">
+		<button class=" flex-fill font-size-28 but-313233 mg-r-25" catchtap="refuseRefund">拒绝退款</button>
+		<button class=" flex-fill font-size-28 but-F6B352 " catchtap="agreeRefund">同意退款</button>
+	</view>
+
+
+</view>

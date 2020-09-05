@@ -1,0 +1,56 @@
+/* page/personal-center/pages/my-order/my-order.wxss */
+
+.center {
+	min-height: 100vh;
+}
+
+.img-01 {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+.img-02 {
+  width: 196rpx;
+  height: 196rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+.img-03 {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+
+
+.but-F6B352 {
+  width: 169rpx;
+  padding: 0;
+  border: 1px solid  #F6B352;
+	background-color: #F6B352;
+	border-radius: 32rpx;
+	line-height: 60rpx;
+	color: #fff;
+}
+
+
+
+.but-C4C8CC {
+  height: 56rpx;
+  border: 1px solid  #C4C8CC;
+  border-radius: 6rpx;
+}
+
+button::after {
+  display: none;
+  }
+
+.f-s-24 {
+  font-size: 24rpx;
+}
+
+.f-s-28 {
+  font-size: 28rpx;
+}
+  

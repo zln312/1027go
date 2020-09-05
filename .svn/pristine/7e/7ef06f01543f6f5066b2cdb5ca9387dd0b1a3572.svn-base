@@ -1,0 +1,71 @@
+<!--page/personal-center/pages/merchant-refund-details/merchant-refund-details.wxml-->
+
+
+<view class="bg-F0F2F5 min-height-100vh pd-t-40 container-fluid" style="padding-bottom: 60rpx;">
+
+  <block wx:for="{{orderList}}">
+	<view class="br-16 bg-fff mg-b-40">
+		<view class="row align-items-center pd-b-24 pd-t-24">
+			<view class="bg-F6B352 mg-r-24 flex-shrink-0" style="width:6rpx; height:28rpx;"></view>
+			<view class="flex-fill f-s-24 break-oid">订单号：{{item.orderId}}</view>
+			<view class="flex-fill text-right mg-r-20 f-s-24" style="{{item.status===1?'color:#F6B352':''}}">{{item.status===1?'待处理':(item.status===10?'客服介入':(item.status===2||item.status===4?'退款成功':(item.status===5||item.status===3?'退款关闭':'已拒绝退款')))}}</view>
+		</view>
+		<view class="row align-items-center font-size-28">
+			<view class="row flex-nowrap align-items-start mg-l-r-20 pd-t-24 pd-b-24 mg-b-20 bo-b-F0F2F5 bo-t-F0F2F5" style="width:100%">
+				<image class="img-01 flex-shrink-0" src="{{item.photoUrl}}"></image>
+				<view class="flex-fill row  mg-l-20">
+					<view class="col-14 f-s-28" style="height:74rpx;color:#313233">{{item.goodsName}}</view>
+					<view class="col-10 text-right font-weight">退款：¥ {{item.refundMoney}}</view>
+					<view wx:if="{{item.status===1}}" class="col-24 color-626466 f-s-24">处理时间： {{item.deadline}}</view>
+					<view wx:if="{{item.status===2||item.status===5}}" class="col-24 color-626466 f-s-24">已退款： ￥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="row align-items-center justify-content-end font-size-28 pd-b-24 ">
+			<button class=" font-size-28 but-626466 mg-r-25" data-id="{{item.id}}" catchtap="viewDetails">查看详情</button>
+		</view>
+	</view>
+</block>
+	<!-- <view class=" br-16 bg-fff mg-b-40">
+		<view class="row align-items-center pd-b-24">
+			<view class="bg-F6B352 mg-r-24 flex-shrink-0" style="width:6rpx; height:28rpx;"></view>
+			<view class="flex-fill">订单号：8457487843782</view>
+			<view class="flex-fill text-right mg-r-20">待处理</view>
+		</view>
+		<view class="row align-items-center font-size-28">
+			<view class="row flex-nowrap align-items-start mg-l-r-20 pd-t-24 pd-b-24 mg-b-20 bo-b-F0F2F5 bo-t-F0F2F5">
+				<image class="img-01 flex-shrink-0" src="/images/refund/image-02.jpg"></image>
+				<view class="flex-fill row  mg-l-20">
+					<view class="col-14">贵阳担家香酥鸭贵阳担家香酥鸭</view>
+					<view class="col-10 text-right font-weight">退款：¥ 18.90</view>
+					<view class="col-24 color-626466">处理时间： 1天23小时58分</view>
+				</view>
+			</view>
+		</view>
+		<view class="row align-items-center justify-content-end font-size-28 pd-b-24 ">
+			<button class=" font-size-28 but-626466 mg-r-25" catchtap="viewDetails">查看详情</button>
+		</view>
+	</view>
+
+  	<view class=" br-16 bg-fff mg-b-40">
+		<view class="row align-items-center pd-b-24">
+			<view class="bg-F6B352 mg-r-24 flex-shrink-0" style="width:6rpx; height:28rpx;"></view>
+			<view class="flex-fill">订单号：8457487843782</view>
+			<view class="flex-fill text-right mg-r-20">待处理</view>
+		</view>
+		<view class="row align-items-center font-size-28">
+			<view class="row flex-nowrap align-items-start mg-l-r-20 pd-t-24 pd-b-24 mg-b-20 bo-b-F0F2F5 bo-t-F0F2F5">
+				<image class="img-01 flex-shrink-0" src="/images/refund/image-02.jpg"></image>
+				<view class="flex-fill row  mg-l-20">
+					<view class="col-14">贵阳担家香酥鸭贵阳担家香酥鸭</view>
+					<view class="col-10 text-right font-weight">退款：¥ 18.90</view>
+					<view class="col-24 color-626466">处理时间： 1天23小时58分</view>
+				</view>
+			</view>
+		</view>
+		<view class="row align-items-center justify-content-end font-size-28 pd-b-24 ">
+			<button class=" font-size-28 but-626466 mg-r-25" catchtap="viewDetails">查看详情</button>
+		</view>
+	</view> -->
+
+</view>

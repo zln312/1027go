@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "default-list":"/components/default-list/default-list"
+  }
+}

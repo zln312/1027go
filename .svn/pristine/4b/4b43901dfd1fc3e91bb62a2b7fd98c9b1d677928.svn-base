@@ -1,0 +1,378 @@
+<import src="/templates/live-player.wxml" />
+<import src="../../components/appToast/appToast.wxml" />
+<import src="/templates/follow_with_interest.wxml" />
+<import src="/templates/red_packet.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<wxs module="fn">
+	module.exports = {
+		verifyObjIsNull: function(obj) {
+			if (JSON.stringify(obj) != '{}') {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		sub1: function(sub) {
+			return sub.slice(0, 2);
+		}
+		sub2: function(sub) {
+			return sub.slice(3, 5);
+		}
+		sub3: function(sub) {
+			return sub.slice(6, 8);
+		}
+		tofixed: function(num) {
+			return num.toFixed(2)
+		}
+	}
+</wxs>
+
+
+
+<view class="container_page">
+	<!--视频-->
+	<view class='page-header' catchtouchmove="true">
+		<template is="live-player" data="{{...live_player_attr, ...{playing:playing},...{isFullScreen:isFullScreen},...{isImpeach:isImpeach},...{messageArr:messageArr},...{lastMsgTime:lastMsgTime},playUrl:playUrl,danmuList:danmuList,allowInf:allowInf}}" />
+	</view>
+	<!--获取Banner图-->
+	<view class="page-advert">
+		<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}" interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}rpx" next-margin="{{nextMargin}}rpx" indicator-active-color="#fff">
+			<block wx:for='{{images}}' wx:key='index'>
+				<swiper-item>
+					<image src='{{item}}' mode='aspectFill' class='swiper-item-images' />
+				</swiper-item>
+			</block>
+		</swiper>
+	</view>
+	<!---->
+	<template is="redPacket" data="{{...red_packet_entity, ...{isRed_packet:isRed_packet}, index:red_packet_index, defaultLogoUrl:defaultUserLogo }}" />
+	<!--tab栏 -->
+	<view class='page-content'>
+		<view class="weui-tab weui_tab">
+			<!--tab栏-->
+			<view class="weui-navbar">
+				<block wx:for="{{tabs}}" wx:key="*this">
+					<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+						<view class="weui-navbar__title">{{item}}</view>
+						<view class="{{activeIndex == index ? 'b-line': ''}}"></view>
+					</view>
+				</block>
+			</view>
+			<!--tab切换-->
+			<view class="weui-tab__panel">
+
+				<!--聊信息-->
+				<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+
+					<k-scroll id="recordWrapper" catchtap='chatingWrapperClick' scroll-y="true" class="record-wrapper" refreshing="{{refreshing}}" style="height:{{contentH}}%" disablePullUp="false" bindpulldownrefresh="refreshData">
+
+						<!---->
+						<view class='chatroom-nocontent'>喜欢的亲关注主播点赞哦！\n本直播为绿色直播，禁止低俗、引诱、暴露、等一切违法行为</view>
+						<!--消息-->
+						<view wx:for="{{messageArr}}" wx:for-item="message" wx:key="index">
+							<view class='record-item-time-wrapper'>
+								<text class='record-item-time' wx:if="{{index%12 == 0}}">{{message.displayTimeHeader}}</text>
+							</view>
+							<view wx:if="{{message.subType == 2}}" class='sys-msg-content'> {{message.content}}</view>
+							<view wx:if="{{message.subType == 1}}" class='point-up-msg-content'> {{message.content}}</view>
+							<view wx:if="{{message.subType == 4}}" class='room-advert-content' data-index="{{index}}" bindtap="roomAdvertTap">
+								<image src='{{message.photourl}}' mode='scaleToFill'></image>
+								<view>{{message.title}}</view>
+							</view>
+							<view wx:if="{{message.subType == 5}}" class='room-act-content' data-index="{{index}}" bindtap="skillEventTap">
+								<view class="room-act-detail">
+									<view class="room-act-detail-img">
+										<image src='{{message.photourl}}' mode='scaleToFill'></image>
+										<view class="title">{{message.goodsname}}</view>
+										<view class="content">{{message.starttime}}开始限时秒</view>
+									</view>
+								</view>
+							</view>
+							<view wx:if="{{message.subType == 6}}" class='room-act-content' data-index="{{index}}" bindtap="acutionEventTap">
+								<view class="room-act-detail">
+									<view class="room-act-detail-img">
+										<image src='{{message.photourl}}' mode='scaleToFill'></image>
+										<view class="title">{{message.goodsname}}</view>
+										<view class="content">{{message.starttime}}开始拍卖</view>
+									</view>
+								</view>
+							</view>
+							<view wx:if="{{message.sendOrReceive == 'receive'}}" id="chat_item" class='other {{message.sendOrReceive == "receive" ? "record-chatting-item other" : ""}}' style='justify-content: {{message.type === "tip" || message.type === "notification" ? "center" : "flex-start"}}' data-message="{{message}}" bindlongpress='showEditorMenu'>
+
+								<image wx:if="{{message.type !== 'tip' && message.type !== 'notification'}}" catchtap='switchPersonCard' data-account='{{message.fromAccount}}' src='{{message.fromAccountHeadurl || defaultUserLogo}}' class='record-chatting-item-img'></image>
+
+								<text wx:if="{{message.type !== 'tip' && message.type !== 'notification' && message.type !== 'image' && message.type !== 'video' && message.type !== 'geo' && message.type !== '猜拳' && message.type !== '贴图表情' }}"   style="{{message.type === 'red-packet'?'':'margin-left:40rpx;'}}"></text>
+								<rich-text wx:if="{{message.type === 'image'}}" class='record-chatting-item-text nobg' nodes="{{message.nodes}}"></rich-text>
+								<rich-text wx:if="{{message.type === '猜拳' || message.type === '贴图表情'}}" class='record-chatting-item-text nobg' nodes="{{message.nodes}}"></rich-text>
+								<rich-text class="record-chatting-item-nick">{{message.fromAccountNick}}</rich-text>
+								<rich-text wx:if="{{message.type === 'text' || message.type === 'file' || message.type === '白板消息' || message.type === '阅后即焚' || message.type === 'robot'|| message.type === 'custom'}}" class='record-chatting-item-text' nodes="{{message.nodes}}"></rich-text>
+
+								<view wx:if="{{message.type === 'red-packet'}}" data-index="{{index}}" catchtap='getRedEnvelopes'>
+									<!-- <view class="red-packet-content" style="background-color:{{message.packetColor}}">
+										<image src="{{message.red_packet_img}}" class='packet-image'></image>
+										<view class="red-packet-content-text">
+											<text class="blessingword" style="color:{{message.font_color}}">{{message.content}}</text>
+											<view class="get-red-envelopes" style="color:{{message.font_color}}">{{message.get_red}}</view>
+										</view>
+									</view> -->
+									<image class="redp" src="{{message.get_red=='已领取'?'../../images/redped.png':'../../images/redpack1.png'}}"></image>
+								</view>
+								<rich-text wx:if="{{message.type === 'tip' || message.type === 'notification'}}" class='tip-rich-text' nodes="{{message.nodes}}"></rich-text>
+							</view>
+						</view>
+
+					</k-scroll>
+
+				</view>
+
+
+				<!-- 乐优选 -->
+				<view class="weui-tab__content" hidden="{{activeIndex != 1}}">
+					<scroll-view scroll-y="true" class="opt-scroll-content" style="height:{{scroH}}px">
+						<view class="opt-container">
+							<view class="opt-content">
+								<view class="opt-title-content">
+									<view class="opt-divider-line"></view>
+									<view class="opt-title">有奖问答</view>
+									<view style="white-space:nowrap;font-size:28rpx">{{question_text}}：</view>
+									<view class="opt-title-content-time">
+										<view class="opt-title-content-hour">
+											{{wxTimerList['wxTimer1'].wxTimer?fn.sub1(wxTimerList["wxTimer1"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon">:</view>
+										<view class="opt-title-content-minute">
+											{{wxTimerList['wxTimer1'].wxTimer?fn.sub2(wxTimerList["wxTimer1"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon">:</view>
+										<view class="opt-title-content-second" style="{{timeColor1=='red'?'color:red':''}}">
+											{{wxTimerList['wxTimer1'].wxTimer?fn.sub3(wxTimerList["wxTimer1"].wxTimer):'00'}}
+										</view>
+									</view>
+								</view>
+								<view class="opt-answer-content">
+									<view class="opt-answer-content-detail">
+										{{questionActivity_data.question}}
+									</view>
+									<view class="opt-answer-content-group1">
+										<view class="opt-answer-content-group-opt1 {{answer_color === 'A'?'answer_sel':''}}" data-answer="A" bindtap="question_answer">
+											{{questionActivity_data.answerA}}</view>
+										<view class="opt-answer-content-group-opt2 {{answer_color === 'B'?'answer_sel':''}}" data-answer="B" bindtap="question_answer">
+											{{questionActivity_data.answerB}}</view>
+									</view>
+									<view class="opt-answer-content-group2">
+										<view class="opt-answer-content-group-opt3 {{answer_color === 'C'?'answer_sel':''}}" data-answer="C" bindtap="question_answer">
+											{{questionActivity_data.answerC}}</view>
+										<view class="opt-answer-content-group-opt4 {{answer_color === 'D'?'answer_sel':''}}" data-answer="D" bindtap="question_answer">
+											{{questionActivity_data.answerD}}</view>
+									</view>
+								</view>
+							</view>
+							<view class="opt-rule">
+								<view class="opt-rule-title">
+									<view style="font-size:32rpx">活动规则：</view>
+									<view>1.活动开启,在规定时间内选择答题</view>
+									<view>2.计时期间,可任意修改选择结果,计时结束无法修改,如答题正确,奖品将发放至我的订单</view>
+									<view>3.此环节奖品应在一周内到指定地点自提，过期作废</view>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 限时秒 -->
+				<view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+					<scroll-view scroll-y="true" class="opt-scroll-content">
+						<view class="skill-container">
+							<view class="skill-content">
+								<view class="skill-goods-image-content">
+									<image src='{{secondsKill_data.photourl}}' />
+								</view>
+								<view class="skill-goods-detail-content">
+									<view class="skill_wrap">
+										<view style="white-space:nowrap">
+											<view class="title">{{secondsKill_data.goodsname}}</view>
+											<view class="residualquantity">库存：{{secondsKill_data.residualquantity}}份</view>
+										</view>
+									</view>
+									<view class="price_tx">秒杀价：<text class="price">￥{{secondsKill_data.price}}</text></view>
+								</view>
+								<view class="skill-goods-btn-content">
+									<view class="opt-title-content-time2">
+										<view class="opt-title-content-hour2">
+											{{wxTimerList['wxTimer2'].wxTimer?fn.sub1(wxTimerList["wxTimer2"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon2">:</view>
+										<view class="opt-title-content-minute2">
+											{{wxTimerList['wxTimer2'].wxTimer?fn.sub2(wxTimerList["wxTimer2"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon2">:</view>
+										<view class="opt-title-content-second2" style="{{timeColor2=='red'?'color:red':''}}">
+											{{wxTimerList['wxTimer2'].wxTimer?fn.sub3(wxTimerList["wxTimer2"].wxTimer):'00'}}
+										</view>
+									</view>
+									<view class="secondsKill_text">{{secondsKill_text}}</view>
+									<view class="skill-btn-layout">
+										<view class="skill-btn-title" bindtap="goBuySecondsKillGoods">立即抢购</view>
+									</view>
+								</view>
+							</view>
+							<view class="opt-rule">
+								<view class="opt-rule-title">
+									<view style="font-size:32rpx">活动规则：</view>
+									<view>活动开启,在规定时间内进行特价商品限量秒杀</view>
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 拼团购 -->
+				<view class="weui-tab__content" hidden="{{activeIndex != 3}}">
+					<scroll-view scroll-y="true" class="opt-scroll-content2" style="height:{{scroH}}px">
+						<view class="skill-container">
+							<view class="skill-content">
+								<view class="skill-goods-image-content">
+									<image src='{{collageDetail.photourl}}' />
+								</view>
+								<view class="skill-goods-detail-content">
+									<view class="skill_wrap">
+										<view style="white-space:nowrap">
+											<view class="title">{{collageDetail.goodsname}}</view>
+											<view class="residualquantity">库存：{{collageDetail.surplusnumber}}份</view>
+											<view class="price_tx"><text decode="true" space="emsp">原 价</text>：<text class="price2">￥{{collageDetail.totalamount}}</text></view>
+											<view class="price_tx">最低价：<text class="price">￥{{price_last}}</text></view>
+										</view>
+									</view>
+
+								</view>
+								<view class="skill-goods-btn-content">
+									<view class="opt-title-content-time2">
+										<view class="opt-title-content-hour2">
+											{{wxTimerList['wxTimer3'].wxTimer?fn.sub1(wxTimerList["wxTimer3"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon2">:</view>
+										<view class="opt-title-content-minute2">
+											{{wxTimerList['wxTimer3'].wxTimer?fn.sub2(wxTimerList["wxTimer3"].wxTimer):'00'}}
+										</view>
+										<view class="opt-title-content-colon2">:</view>
+										<view class="opt-title-content-second2" style="{{timeColor3=='red'?'color:red':''}}">
+											{{wxTimerList['wxTimer3'].wxTimer?fn.sub3(wxTimerList["wxTimer3"].wxTimer):'00'}}
+										</view>
+									</view>
+									<view class="secondsKill_text">{{collage_text}}</view>
+									<view class="skill-btn-layout">
+										<view wx:if="{{join_or_buy!==''}}" class="skill-btn-title" bindtap="join_now">{{join_or_buy}}</view>
+										<view wx:else class="skill-btn-title" bindtap="join_no">立即参与</view>
+									</view>
+								</view>
+							</view>
+							<view class="collage-scroll-content">
+								<view class="collage_progress">
+									<text class="line_title" wx:if="{{process}}">热度值：{{process}}%</text>
+									<view class="line_wrap">
+										<progress percent="{{process}}" stroke-width="12" border-radius="5" activeColor="#f7b455" backgroundColor="#fdf5de" />
+
+										<view class="roll_container">
+											<view class="roll_wrap">
+												<view class="roll_icon"></view>
+												<view class="roll_price">{{collageDetail.totalamount}}</view>
+											</view>
+											<block wx:for="{{pricelist}}" wx:key="index">
+												<view class="roll_wrap">
+													<view class="roll_icon"></view>
+													<view class="roll_price">{{item.price}}</view>
+												</view>
+											</block>
+										</view>
+									</view>
+								</view>
+								<view class="collage-goods-content">
+									<view class="prices">当前价格：￥{{current_price}}</view>
+									<view class="count">当前票数：{{collageDetail.totalVotes}}张</view>
+								</view>
+								<view class="opt-rule">
+									<view class="opt-rule-title">
+										<view style="font-size:32rpx">活动规则：</view>
+										<view>1.在规定时间内,通过购买参与拼团票数提升热度条,不断压低价格.</view>
+										<view>2.计时结束时，当前价格为该商品团购价</view>
+										<view>3.拼团购作为互动压价活动,商品价格由参与票数多少决定,每个用户每次可购买最多99票数.参与压价的票数费用不能抵扣商品成交价,并且无法申请退款,请慎重购买
+											<br />
+										</view>
+									</view>
+
+								</view>
+							</view>
+						</view>
+					</scroll-view>
+				</view>
+				<!-- 我的 -->
+				<view class="weui-tab__content" hidden="{{activeIndex != 4}}"></view>
+			</view>
+			<!--输入栏-->
+			<view class="input_bar" hidden="{{activeIndex != 0}}">
+				<!-- <view class="page-footer" style='margin-bottom: {{focusFlag ? key_height : 0}}px; height:{{fooerHeight}}rpx;bottom:{{bottomHeight}}vh' catchtouchmove="true" catchtap='stopEventPropagation'> -->
+				<view class="page-footer" catchtouchmove="true" style='bottom:{{bottomHeight}}vh' catchtap='stopEventPropagation'>
+					<view class="footer-content">
+						<!-- 输入框 adjust-position="{{false}}"-->
+						<view class="footer-input-content" style="width:{{footerParam.iptWidth}}%">
+							<text class="chatinput-input_text" selectable='true'>{{inputValue}}</text>
+							<textarea class='chatinput-input' hidden="{{hideInput}}" value='{{inputValue}}' focus='{{focusFlag}}' bindfocus='inputFocus' bindblur='inputBlur' bindinput='inputChange' bindconfirm='inputSend' bindlinechange='inputHeightChange' cursor-spacing="20" maxlength="70" confirm-type='send' fixed="true" placeholder="请输入文字" show-confirm-bar="{{false}}" disable-default-padding="{{true}}" placeholder-class="input-content-placeholder">
+							</textarea>
+							<view class="footer-input-nolanding" hidden="{{!hideInput}}" bindtap="sendInputTap">登陆参与互动</view>
+						</view>
+						<!-- 发送-->
+						<view class="footer-btn-content" style="align-items:{{footerParam.align}}">
+							<image src='../../images/emoji.png' catchtap='toggleEmoji' class='chatinput-emoji'></image>
+							<image src='../../images/send_img.png' catchtap='sendContent' class='chatinput-img' data-value="{{inputValue}}"></image>
+						</view>
+					</view>
+				</view>
+				<!--自定义输入 表情 -->
+				<view hidden="{{ !emojiFlag }}" class='chatinput-subcontent'>
+					<component-emoji bind:EmojiClick="emojiCLick" bind:EmojiSend="emojiSend"></component-emoji>
+				</view>
+				<!--红包-->
+				<view class="red-paper-content">
+					<image src='../../images/hongbao.png' hidden="{{isRedPecket}}" mode="aspectFit" catchtap='togglehb'></image>
+				</view>
+			</view>
+
+		</view>
+	</view>
+
+	<!-- 购买票数弹窗 -->
+	<view wx:if="{{showModal}}">
+		<view class="collage_container">
+			<view class="collage_top">
+				<image src="{{collageDetail.photourl}}" class="goods_img"></image>
+				<view class="title_wrap">
+					<view class="collage_title">{{collageDetail.goodsname}}</view>
+					<view class="collage_joinPrice">参与券：<text>￥{{collageDetail.bondamount}}</text></view>
+				</view>
+				<image src="../../images/arrow_right.png" class="arrow_right" catchtap="join_now"></image>
+			</view>
+			<view class="rule_wrap">
+				<view class="rule_title">规则</view>
+				<view class="rulel_content">提示：参与压价的票数费用不能抵扣最终商品成交价，并且无法申请退款,请慎重购买参与票数</view>
+			</view>
+			<view class="ticket_wrap">
+				<view class="ticket_title">票数类型</view>
+				<view class="ticket_num" catchtap="ticket_sel">
+					<view class="ticket_detail" data-num="1">1张</view>
+					<view class="ticket_detail" data-num="5">5张</view>
+					<view class="ticket_detail" data-num="10">10张</view>
+				</view>
+				<view class="ticket_sel">
+					<view class="num_math" catchtap="ticket_reduce">-</view>
+					<input class="num_math" value="{{ticket_input}}" type="number" bindinput="ticket_input"></input>
+					<view class="num_math" catchtap="ticket_add">+</view>
+				</view>
+			</view>
+		</view>
+		<view class="page-bottom">
+			<view class="left">
+				<view class="price">￥{{fn.tofixed(collageDetail.bondamount*ticket_input)}}</view>
+				<view class="number">数量：{{ticket_input}}</view>
+			</view>
+			<view class="right" bindtap="join_colllage">立即支付</view>
+		</view>
+	</view>
+</view>

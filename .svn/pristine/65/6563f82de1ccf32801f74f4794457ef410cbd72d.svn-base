@@ -1,0 +1,81 @@
+/* page/personal-center/pages/receiving-address-list/receiving-address-list.wxss */
+
+.center {
+	min-height: 100vh;
+	padding-top: 4rpx;
+
+}
+.address-card {
+	padding-top: 24rpx;
+	padding-bottom: 24rpx;
+	margin-bottom: 4rpx;
+	background-color: #fff;
+}
+.address-card-top {
+	line-height: 40rpx;
+}
+.address-card-top-l {
+	width: 140rpx;
+	overflow:hidden; 
+	white-space: nowrap; 
+	text-overflow: ellipsis;
+}
+.address-card-top-c {
+	margin-left: 4rpx;
+	margin-right: 8rpx;
+}
+.address-card-top-r {
+	width: 64rpx;
+	height: 32rpx;
+	border-radius: 8rpx;
+	line-height: 32rpx;
+}
+.address-card-bottom {
+	line-height: 36rpx;
+	margin-top: 16rpx;
+}
+.address-card-bottom-l {
+	width: 590rpx;
+}
+
+
+
+
+
+.address-card-r {
+	width: 80rpx;
+}
+.address-card-r > image {
+	display: block;
+	width: 48rpx;
+	height: 48rpx;
+}
+.add-address  {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 80rpx;
+}
+
+
+.but-F6B352 {
+	padding: 0;
+	background: #F6B352;
+	box-shadow: 0rpx 8rpx 16rpx 0rpx #F6B352;
+	border-radius: 64rpx;
+	line-height: 80rpx;
+	color: #fff;
+}
+
+
+
+
+.defaultPage-image {
+	width: 132rpx;
+	height: 124rpx;
+}
+
+
+button::after {
+	display: none;
+	}

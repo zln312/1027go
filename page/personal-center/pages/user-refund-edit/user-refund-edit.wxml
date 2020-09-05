@@ -1,0 +1,105 @@
+<!--page/personal-center/pages/user-refund-edit/user-refund-edit.wxml-->
+
+<view class="bg-F2F4F5 min-height-100vh pd-b-200">
+
+	<view class="container-fluid  pd-t-16 pd-b-16 mg-b-20 bg-fff">
+		<view class="row flex-nowrap align-items-start pd-b-40">
+			<image class="img-01 flex-shrink-0" src="{{orderMsg.photourl}}"></image>
+			<view class="font-size-28 flex-fill mg-l-20">{{orderMsg.goodsname}}</view>
+		</view>
+	</view>
+
+	<view class="container-fluid bg-fff pd-b-64 mg-b-48 ">
+		<view class="row flex-nowrap align-items-center height-88 mg-b-16 font-size-28 color-313233">
+			<view class=" flex-shrink-0 font-size-28" style="width:120rpx">退款金额</view>
+			<view class=" flex-fill mg-l-20">
+				<text>¥ {{orderMsg.allprice}}</text>
+				<text class="color-939699" decode='true'wx:if="{{!orderMsg.postage === 0}}" >&nbsp;(包含发货邮费¥{{orderMsg.postage}})</text>
+			</view>
+		</view>
+
+		<view class="row flex-nowrap align-items-center justify-content-between height-88 mg-b-16 font-size-28 color-313233">
+			<view class=" flex-shrink-0 font-size-28" style="width:120rpx">退款原因</view>
+			<view class=" flex-fill row flex-nowrap align-items-center justify-content-end mg-l-20" catchtap="reasonForRefundShow">
+				<view class="color-939699">{{problemText}}</view>
+				<image class="img-03 mg-l-20" src="/images/address/image01.png"></image>
+			</view>
+		</view>
+
+		<view class="row flex-nowrap align-items-center height-88 mg-b-16 font-size-28 color-313233">
+			<view class=" flex-shrink-0 font-size-28" style="width:120rpx">退款说明</view>
+		</view>
+		<view class="position-relative mg-t-24 mg-b-16 font-size-28 color-313233">
+			<textarea class="textarea_style" placeholder="选填" placeholder-style="color:'#939699'" maxlength="100" value="{{refundExplain}}" bindinput="refundInstructions" cursor-spacing='50' disable-default-padding="{{true}}" />
+			<view class="word-count color-939699">{{refundExplainNumberWords}}/100</view>
+		</view>
+	</view>
+
+	<view class="container-fluid bg-fff pd-t-40 " style="padding-bottom: 24rpx">
+  	<view class="row flex-nowrap align-items-center mg-b-16 font-size-28 color-313233">
+			<view class=" flex-shrink-0 font-size-28" style="width:120rpx">上传凭证</view>
+			<view class=" flex-fill mg-l-20 font-size-24 color-939699">最多3张</view>
+		</view>
+
+		<view class="row flex-nowrap align-items-start pd-t-20 pd-b-24 font-size-24 color-626466">
+      <block wx:for="{{pictureUpload}}" wx:for-index="index" wx:key="key">
+				 <view class="flex-shrink-0 upload-picture {{index==1? 'mg-l-r-40' : ''}}" data-index="{{index}}" catchtap="{{imgLength<3?'pictureUpload':''}}">
+				    <view class="upload-picture-view">
+						  <image wx:if="{{item.example}}" class="img-05"  mode='scaleToFill' src="/images/refund/image-05.png"></image>
+              <image wx:if="{{!item.example}}" class="img-02"  mode='scaleToFill' src="{{item.tempFilePaths}}"></image>
+						</view>
+						<image wx:if="{{!item.example}}"  catchtap="deletePicture" data-index="{{index}}" class="img-02 delete-img" src="/images/refund/image-04.png"></image>
+			   </view>
+			</block>
+		</view>
+	</view>
+
+	<view class="container-fluid add-address pd-t-20 pd-b-20">
+		<button class="font-size-28 but-F6B352 " data-type="0" catchtap="addUserAfterSaleUrl">提交</button>
+	</view>
+</view>
+
+
+
+
+
+<view class="reasonForRefund" wx:if="{{reasonForRefund}}">
+  <view class="reasonForRefund-Modal-box pd-40">
+	  <view class="reasonForRefundModalBox-t pd-b-40 text-center font-size-28" style="font-weight:600">
+		    退款原因
+				<image catchtap="reasonForRefundShow" style="float: right;" class="img-04" src="/images/refund/image-03.png"></image>
+		</view>
+
+		<view class="reasonForRefundModalBox-option pd-t-20 pd-b-20 text-center font-size-28 line-height-40" data-value="1" data-content="协商一致" catchtap="reasonForRefund">
+					<icon class="icon-small" type="{{problem==1?'success':'circle'}}" color="{{problem==1?'#F6B352':'#939699'}}" size="18"></icon>
+        
+			<view class="pd-l-20">协商一致</view>
+		</view>
+
+		<view class="reasonForRefundModalBox-option pd-t-20 pd-b-20 text-center font-size-28 line-height-40" data-value="2" data-content="买错/买多/不想要" catchtap="reasonForRefund">
+			<!-- <cover-image class="img-04" src="/images/address/image03.png"></cover-image> -->
+			
+			<icon class="icon-small" type="{{problem==2?'success':'circle'}}" color="{{problem==2?'#F6B352':'#939699'}}" size="18"></icon>
+			<view class="pd-l-20">买错/买多/不想要</view>
+		</view>
+
+		<view class="reasonForRefundModalBox-option pd-t-20 pd-b-20 text-center font-size-28 line-height-40" data-value="3"  data-content="商家未按照规定时间发货" catchtap="reasonForRefund">
+						<icon class="icon-small" type="{{problem==3?'success':'circle'}}" color="{{problem==3?'#F6B352':'#939699'}}" size="18"></icon>
+
+			<view class="pd-l-20">商家未按照规定时间发货</view>
+		</view>
+
+		<view class="reasonForRefundModalBox-option pd-t-20 pd-b-20 text-center font-size-28 line-height-40" data-value="4"  data-content="缺货" catchtap="reasonForRefund">
+					<icon class="icon-small" type="{{problem==4?'success':'circle'}}" color="{{problem==4?'#F6B352':'#939699'}}" size="18"></icon>
+
+			<view class="pd-l-20">缺货</view>
+		</view>
+
+		<view class="reasonForRefundModalBox-option pd-t-20 pd-b-20 text-center font-size-28 line-height-40" data-value="5"  data-content="其他" catchtap="reasonForRefund">
+					<icon class="icon-small" type="{{problem==5?'success':'circle'}}" color="{{problem==5?'#F6B352':'#939699'}}" size="18"></icon>
+
+			<view class="pd-l-20">其他</view>
+		</view>
+
+	</view>
+</view>

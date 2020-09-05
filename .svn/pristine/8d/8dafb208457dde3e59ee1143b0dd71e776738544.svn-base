@@ -1,0 +1,57 @@
+<!--pages/optSelection/opt.wxml-->
+<import src="../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<wxs module="fn">
+  module.exports = {
+    startHttp: function(str) {
+      return str.indexOf("http");
+    },
+  }
+</wxs>
+<view class="container_page">
+  <view class="divider-line"></view>
+  <scroll-view scroll-y="true" class="optimal-content" bindscrolltolower="onReachBottom" lower-threshold='100'>
+
+      <block wx:for-items="{{detailsList}}" wx:key="index">
+        <view class="opt-item-content" data-index="index" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <view class="skill-item-header">
+            <view class="skill-logo">
+              <image src='../../images/opt_slt_1.png' mode='aspectFit' />
+            </view>
+            <view class="good-title"> 乐优选 第{{item.updatetime}}期</view>
+          </view>
+          <view class="divider-line1"></view>
+          <text class="opt-item-title">题目：{{item.question}}</text>
+      
+            <view class="opt-item-option-content-group">
+              <text class="option-title">A: {{item.answer_a}}</text>
+              <text class="option-title">B: {{item.answer_b}}</text>
+            </view>
+            <view class="opt-item-option-content-group">
+              <text class="option-title">C: {{item.answer_c}}</text>
+              <text class="option-title">D: {{item.answer_d}}</text>
+            </view>
+        
+          <view class="divider-line-dashed"></view>
+          <view class="label-content">
+            <text class="label-name" space="nbsp">正确答案：</text>
+            <text class="label-tx" space="nbsp">{{item.realanswer}}</text>
+          </view>
+          <view class="label-content">
+            <text class="label-name" space="nbsp">获取奖品：</text>
+            <text class="label-tx" space="nbsp">{{item.goodsname}}</text>
+          </view>
+          <view class="skill-item-footer">
+            <view class="ticket-status"  bindtap='listTapClick' data-index="{{index}}">领奖详情</view>
+          </view>
+        
+      </view>
+  
+      </block>
+  
+  </scroll-view>
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</view>

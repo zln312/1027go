@@ -1,0 +1,96 @@
+.select-container {
+  width: 223rpx;
+  height: 100rpx;
+  border: solid 1px;
+  margin: 20rpx 0 0 20rpx;
+  border-radius: 3px;
+}
+
+.select-container text {
+  position: absolute;
+  width: 223rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  text-align: center;
+}
+
+.selected {
+  color: red;
+}
+
+.normal {
+  color: black;
+}
+
+.item_container {
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  margin: 8rpx;
+}
+
+.invite_container {
+  height: 144rpx;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+#item_image_bg {
+  margin-left: 8rpx;
+  width: 64rpx;
+  height: 64rpx;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+#item_image_bg image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+#item_inf_bg {
+  width: 100%;
+}
+
+#item_inf_bg image {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 39px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+#item_inf_bg view {
+  width: 100%;
+  font-size: 24rpx;
+  line-height: 24rpx;
+  max-width: 96rpx;
+  max-height: 36rpx;
+  max-lines: 1;
+}
+
+#invit_num_bg {
+  width: 100%;
+  font-size: 20rpx;
+  line-height: 24rpx;
+  margin-left: 72rpx;
+  margin-right: 8rpx;
+  letter-spacing: 2rpx;
+  color: #e7785b;
+  justify-content: left;
+  align-items: center;
+  flex-direction: row;
+  display: flex;
+}
+
+#invit_num_bg text {
+  font-size: 24rpx;
+  color: rgb(44, 44, 44);
+}

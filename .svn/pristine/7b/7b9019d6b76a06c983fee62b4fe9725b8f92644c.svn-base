@@ -1,0 +1,27 @@
+<template name="auctionSaleCard">
+  <view class='auction-sale-card' hover-class='item-press' data-id='{{userid}}'>
+        <view class='auction-goods-content'>
+              <view class='auction-goods-img'>
+                <image src='{{photourl}}' class='img'mode='widthFix' />              
+              </view>
+              <view class='auction-goods-detail'>
+                    <view id='card-title'>{{goodsname}}【原价{{goodsprice}}/份】</view>
+                     <view id='card-prices' wx:if='{{start}}'>竞拍</view>
+                    <view id='card-prices'wx:else>
+                        ￥{{price}}<text id='unit' space='nbsp'> 元</text>
+                    </view>
+                    <view id='recod-time-bg'>
+                        <view id='recod-time' wx:if='{{event.isStartPm}}'>
+                        倒计时：<text>{{startTimer}}</text>秒
+                      </view>                    
+                      <view id='recod-time'  wx:else>
+                        倒计时：<text>{{seconds}}</text>秒
+                      </view>
+                    </view>
+              </view>
+
+        </view>
+        <view class='auctio_card_countDown'style='color:rgb(0, 132, 255);' wx:if='{{event.isAuction}}'>{{event.isAuctionText}}</view>     
+        <view class='auctio_card_countDown' wx:else >拍卖倒计时 {{actTimer}}</view>   
+  </view>
+</template>

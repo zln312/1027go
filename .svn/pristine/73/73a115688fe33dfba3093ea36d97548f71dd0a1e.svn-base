@@ -1,0 +1,154 @@
+.skill-dlg-content {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 9000;
+  color: #fff;
+}
+
+.skill-dialog {
+  width: 90%;
+  height: 45%;
+  top: 35%;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin-left: 24rpx;
+  border-radius: 24rpx;
+  border: 6px solid #0091b0;
+  position: fixed;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill-dialog-window {
+  width: 100%;
+  height: 100%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill-header-img {
+  width: 33.3%;
+  height: 114rpx;
+  position: fixed;
+  margin-top: -64rpx;
+}
+
+.skill-detail {
+  width: 100%;
+  height: 80%;
+  margin-top: 32rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.skill-detail-img {
+  width: 50%;
+  height: 100%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill-detail-img image {
+  width: 100%;
+  height: 50%;
+}
+
+.skill-detail-content {
+  width: 50%;
+  height: 100%;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.skill-detail-content .title {
+  width: 90%;
+  margin: 8rpx;
+  background-color: #1d97b6;
+  border-radius: 32rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffe100;
+  font-size: 32rpx;
+  letter-spacing: 4rpx;
+  font-weight: bold;
+}
+
+.skill-detail-content .price-detail {
+  width: 100%;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  letter-spacing: 2rpx;
+  font-weight: bold;
+  color: #5c5c5c;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.skill-detail-content .price-detail #price {
+  color: #0091b0;
+}
+
+.skill-detail-content .price-pay {
+  width: 100%;
+  height: 50%;
+  font-size: 32rpx;
+  line-height: 42rpx;
+  letter-spacing: 2rpx;
+  font-weight: bold;
+  color: #5c5c5c;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.skill-footer {
+  width: 100%;
+  height: 96rpx;
+  line-height: 86rpx;
+  border-top: 1px solid #dedede;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.btn-cancel {
+  width: 50%;
+  height: 100%;
+  font-size: 32rpx;
+  color: #666;
+  background-color: white;
+  text-align: center;
+  justify-content: center;
+  border-right: 1px solid #dedede;
+  border-bottom-left-radius: 16rpx;
+}
+
+.btn-confirm {
+  width: 50%;
+  height: 100%;
+  font-size: 32rpx;
+  font-weight: bold;
+  background-color: white;
+  color: #f25542;
+  text-align: center;
+  justify-content: center;
+  border-bottom-right-radius: 16rpx;
+}

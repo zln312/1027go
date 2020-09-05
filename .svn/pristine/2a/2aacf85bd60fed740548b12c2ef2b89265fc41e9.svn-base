@@ -1,0 +1,18 @@
+<template name="advert_inf">
+    <view class="page-advert">
+        <view class="page-advert-bg">
+          <view class="shopping_inf">
+              <view id='shop_name'>{{storename}}</view>
+              <view id='shop_tel'>订座电话:{{contactphone}}</view>
+          </view>
+          <view class="shopping_address">
+            <view id='shop_address'>店面地址:</view>
+            <view id='shop_addr_content'>{{address}}</view>
+          </view>
+          <view class="shopping_status" hidden="true">
+                 <view id='living_start_time' wx:if="{{!isLiving}}">直播倒计时：{{livingTimer}}</view>
+                 <view id='living_start_time' wx:else>直播中..</view>
+          </view>
+        </view>  
+    </view>
+</template>

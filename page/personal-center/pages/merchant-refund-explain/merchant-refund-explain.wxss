@@ -1,0 +1,53 @@
+/* page/personal-center/pages/merchant-refund-edit/merchant-refund-edit.wxss */
+/* page/personal-center/pages/merchant-refund-details/merchant-refund-details.wxss */
+
+.center {
+	min-height: 100vh;
+}
+.img-01 {
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+}
+
+
+.textarea_style {
+  width: calc(100% - 40rpx);
+  height: 240rpx;
+  padding: 20rpx;
+  padding-bottom: 70rpx;
+  background: rgba(242, 244, 245, 1);
+  border-radius: 8rpx;
+}
+
+.word-count {
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}
+
+
+.add-address  {
+	position: fixed;
+	left: 0;
+	right: 0;
+  bottom: 0;
+  background-color: #fff;
+}
+
+
+.but-F6B352 {
+  padding: 0;
+  border: 1px solid  #F6B352;
+	background-color: #F6B352;
+	box-shadow: 0rpx 8rpx 16rpx 0rpx #F6B352;
+	border-radius: 64rpx;
+	line-height: 80rpx;
+	color: #fff;
+}
+
+button::after {
+  display: none;
+  }
+  

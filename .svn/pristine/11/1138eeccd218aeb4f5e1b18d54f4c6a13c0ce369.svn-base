@@ -1,0 +1,213 @@
+.container_page {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: absolute;
+}
+
+.red-packet-content {
+  width: 100%;
+  height: 60%;
+  position: relative;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.red-packet-content::after {
+  content: '';
+  width: 100%;
+  height: 60%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  border-radius: 0 0 45% 45%;
+  background: linear-gradient(160deg, #f25542, #f25542);
+}
+
+.red-packet-base-inf {
+  width: 100%;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 64rpx;
+  height: 64rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  font-size: 36rpx;
+  color: #f6e0ae;
+}
+
+.red-blessing {
+  font-size: 32rpx;
+  color: #f6e0ae;
+  font-weight: 400;
+  line-height: 36rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-content {
+  width: 100%;
+  margin-top: 64rpx;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.balance-num {
+  font-size: 72rpx;
+  color: #f6e0ae;
+  font-weight: bold;
+}
+.balance-num_els{
+  font-size: 42rpx;
+  color: #f6e0ae;
+  font-weight: bold; 
+}
+
+.balance-label {
+  font-size: 28rpx;
+  color: #f6e0ae;
+  line-height: 32rpx;
+  letter-spacing: 4rpx;
+}
+
+.robbing-red-envelopes {
+  width: 100%;
+  height: 60%;
+  flex-direction: column;
+  display: flex;
+  justify-content: start;
+  position: absolute;
+  top: 55%;
+}
+.robbing-red-envelopes-text{
+  width: 100%;
+  height: 42rpx;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  color:rgb(144, 144, 144);
+  margin: 8rpx;
+}
+.line{
+  width: 100%;
+  height: 0.5rpx;
+  background-color:rgb(244, 244, 244); 
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+.divide-line{
+  width: 100%;
+  height: 24rpx;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  background-color:rgb(244, 244, 244); 
+}
+
+.robbing-record-wrapper-content{
+  width: 100%;
+  height: 114rpx;
+  display: flex;
+  flex-direction: column;
+}
+.auction-record-wrapper {
+  width: 100%;
+  height: 60%;
+
+}
+
+.grad-red-packet-list {
+  width: 100%;
+  height: 114rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.userinfo-avatar {
+  width: 78rpx;
+  height: 78rpx;
+  border-radius: 50%;
+  margin: 16rpx;
+}
+
+.grad-red-packet-left {
+  width: 14%;
+  height: 114rpx;
+  
+  padding: 4rpx;
+}
+
+.grad-red-packet-midd {
+  width: 43%;
+  height: 114rpx;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: flex-start;
+  padding: 4rpx;
+}
+
+.grad-red-packet-right {
+  width: 43%;
+  height: 114rpx;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: right;
+  align-items: flex-end;
+  padding: 4rpx;
+}
+
+.grad-red-packet-midd-nick {
+  color: rgb(44, 44, 44);
+  font-size: 32rpx;
+  height: 50%;
+  font-weight: 400;
+  margin-left: 16rpx;
+  margin-top: 16rpx;
+  justify-content: end;
+  align-items: center;
+}
+
+.grad-red-packet-midd-time {
+  color: rgb(144, 144, 144);
+  font-size: 30rpx;
+  height: 50%;
+  font-weight: 400;
+  margin-left: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.grad-red-packet-right-money {
+  color: rgb(44, 44, 44);
+  font-size: 36rpx;
+  height: 50%;
+  font-weight: 500;
+  margin-right: 16rpx;
+  margin-top: 16rpx;
+}
+
+.grad-red-packet-right-bestLauck {
+  color: #f6e0ae;
+  font-size: 30rpx;
+  height: 50%;
+  font-weight: 400;
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+}

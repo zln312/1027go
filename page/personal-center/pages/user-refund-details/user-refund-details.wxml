@@ -1,0 +1,74 @@
+<!--page/personal-center/pages/user-refund-details/user-refund-details.wxml-->
+
+
+<view wx:if="{{show}}" class="bg-F2F4F5 min-height-100vh pd-b-120">
+
+		<view class="container-fluid bg-F6B352 pd-t-40 pd-b-40 color-fff" style="background-color:{{status==1?'#F6B352':'red'}}">
+		<view class="font-size-32 mg-b-20">{{status===1?'退款申请已发起，请耐心等待商家处理':(status===10?'客服介入':(status===2||status===4?'退款成功':(status===5||status===3?'退款关闭':'商家拒绝退款')))}}</view>
+		<view wx:if="{{status===1}}" class="font-size-24">处理时间： {{deadline}}</view>
+	</view>
+		<view wx:if="{{status===6}}" class="refuse-outer">
+		<view class="refuse-top">拒绝理由：</view>
+		<view class="refuse-bottom">{{refuseDetail}}</view>
+		</view>
+		<view wx:if="{{status===6}}" style="height:20rpx"></view>
+
+
+	<view class="container-fluid bg-fff pd-t-40 " style="padding-bottom: 24rpx">
+
+		<view class="row flex-nowrap align-items-start bo-b-F0F2F5 pd-b-40">
+			<image class="img-01 flex-shrink-0" src="{{photourl}}"></image>
+			<view class="font-size-28 flex-fill mg-l-20">{{goodsName}}</view>
+		</view>
+
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466">
+			<view class=" flex-shrink-0">退款原因：</view>
+			<view class=" flex-fill mg-l-20">{{problem}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466">
+			<view class=" flex-shrink-0">退款金额：</view>
+			<view class=" flex-fill mg-l-20">¥ {{refundMoney}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466">
+			<view class=" flex-shrink-0">申请时间：</view>
+			<view class=" flex-fill mg-l-20">{{createAt}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466">
+			<view class=" flex-shrink-0">订单编号：</view>
+			<view class=" flex-fill mg-l-20">{{orderId}}</view>
+		</view>
+		<view class="row flex-nowrap align-items-start mg-b-16 font-size-24 color-626466">
+			<view class=" flex-shrink-0">退款说明：</view>
+			<view class=" flex-fill mg-l-20 text-justify">{{refundExplain}}</view>
+		</view>
+		<view  class="row flex-nowrap align-items-start justify-content-between pd-t-20 pd-b-24 font-size-24 color-626466">
+			<image wx:for="{{image}}" wx:key="key" class="img-02 flex-shrink-0" src="{{item}}"></image>
+			<view wx:if='{{imageSize==2}}' style="width:196rpx"></view>
+		</view>
+
+		<view class="mg-b-16 font-size-20 pd-l-r-20 pd-t-15 pd-b-15 color-626466 bg-EBF2FA br-8">
+			<view class="text-justify">商家同意或者退款倒计时结束未处理，系统将自动退款至余额，如商家拒绝，您可以选择修改申请再次发送或申请客服介入</view>
+		</view>
+		<view class="row flex-nowrap align-items-center justify-content-center but-C4C8CC mg-t-24" catchtap="contactCerchants">
+			<image class="img-03 flex-shrink-0" src="/images/refund/image-01.png"></image>
+			<view class="font-size-24 flex-shrink-0 mg-l-8">联系商家</view>
+		</view>
+	</view>
+
+  <block wx:if="{{status==1||status==6}}">
+
+	<view class="container-fluid add-address pd-t-20 pd-b-20" wx:if="{{afterSalesStatus}}">
+		<button class="font-size-28 but-F6B352 " data-type="3" catchtap="cancellationApplication">撤销申请</button>
+	</view>
+
+	<view wx:if="{{!afterSalesStatus}}" class="container-fluid row flex-nowrap align-items-center justify-content-between add-address pd-t-20 pd-b-20">
+		<button class="flex-fill font-size-28 but-313233 mg-r-25" data-type="10" catchtap="cancellationApplication">客服介入</button>
+		<button class="flex-fill font-size-28 but-F6B352 "  catchtap="modificationApplication" wx:if="{{refuseRefundTimes !== 2}}">修改申请</button>
+		<button class="flex-fill font-size-28 but-F6B352" data-type="3" catchtap="cancellationApplication" wx:if="{{refuseRefundTimes == 2}}">撤销申请</button>
+	</view>
+
+
+ </block>
+
+
+</view>

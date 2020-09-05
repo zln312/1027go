@@ -1,0 +1,65 @@
+<import src="../../../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+
+
+<view class="container_page">
+	<view class="weui-tab">
+		<view class="weui-navbar">
+			<block wx:for="{{tabs}}" wx:key="*this">
+				<view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+					<view class="weui-navbar__title">{{item}}</view>
+					<view class="{{activeIndex == index ? 'b-line' : ''}}"></view>
+				</view>
+			</block>
+		</view>
+		<view class="weui-tab__panel">
+			<view class="weui-tab__content" hidden="{{activeIndex != 0}}">
+				<view wx:for="{{detailsList}}" wx:key="key">
+					<view class="one-order" data-obj="{{item}}" bindtap="codeTap">
+						<template is="orderDetial" data="{{item}}"></template>
+					</view>
+				</view>
+				<default-list isShow="{{!detailsList[0]}}"></default-list>
+
+			</view>
+			<view class="weui-tab__content" hidden="{{activeIndex != 1}}" style="color:rgba(147, 150, 153, 1)">
+				<view wx:for="{{unDetailsList}}" wx:key="key">
+					<view class="one-order" data-id="{{item.oid}}">
+						<template is="orderDetial" data="{{item}}"></template>
+					</view>
+				</view>
+				<default-list isShow="{{!unDetailsList[0]}}"></default-list>
+			</view>
+		</view>
+	</view>
+</view>
+
+
+
+<template name="orderDetial">
+	<view wx:if="{{item.isopt==1}}">
+		<image src="{{item.imgUrl}}" class="order-img"></image>
+		<image src="/images/zeng.png" class="zeng"></image>
+	</view>
+	<view wx:if="{{item.isopt==0}}">
+		<image src="{{item.imgUrl}}" class="order-img"></image>
+	</view>
+	<view class="basic">
+		<view class="order-title">{{item.goodsname}}</view>
+		<view class="order-time">{{item.time}}</view>
+	</view>
+	<!-- <view class="order-price" wx:if="{{item.invalid}}">{{item.price==0?"":item.price>0?'￥'+item.price:'-￥'+(-item.price)}}</view> -->
+	<view class="font-size-24">{{item.statusText}}</view>
+</template>
+
+
+
+<!-- <view class="container-fluid add-address pd-t-20 pd-b-20" wx:if="{{afterSalesStatus}}">
+		<button class="font-size-28 but-F6B352 " data-type="3" catchtap="cancellationApplication">撤销申请</button>
+	</view>
+
+	<view wx:if="{{!afterSalesStatus}}" class="container-fluid row flex-nowrap align-items-center justify-content-between add-address pd-t-20 pd-b-20">
+		<button class="flex-fill font-size-28 but-313233 mg-r-25" data-type="10" catchtap="cancellationApplication">客服介入</button>
+		<button class="flex-fill font-size-28 but-F6B352 "  catchtap="modificationApplication" wx:if="{{refuseRefundTimes !== 2}}">修改申请</button>
+		<button class="flex-fill font-size-28 but-F6B352" data-type="3" catchtap="cancellationApplication" wx:if="{{refuseRefundTimes == 2}}">撤销申请</button>
+	</view> -->

@@ -1,0 +1,418 @@
+.container_page {
+  width: 100%;
+  height: 100%;
+}
+.scroll-view-content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  background-color: whitesmoke;
+}
+.goods-content {
+  width: 95%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+  background-color: white;
+}
+
+.collage-dlg-goods-img {
+  width: 30%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.collage-dlg-goods-img image {
+  width: 90%;
+  height: 144rpx;
+  margin-top: 8rpx;
+  margin-left: 8rpx;
+  border: 1rpx solid #e3f2fd;
+}
+
+.collage-dlg-goods-text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;  
+}
+
+.collage-dlg-goods-text .goods-name {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: black;
+  flex-wrap: nowrap;
+}
+
+.collage-dlg-goods-text .goods-prices {
+  font-size: 28rpx;
+  font-weight: normal;
+  color: rgb(164, 164, 164);
+  flex-wrap: nowrap;
+}
+
+.collage-dlg-goods-text .goods-quotas {
+  font-size: 24rpx;
+  font-weight: normal;
+  color: rgb(164, 164, 164);
+  flex-wrap: nowrap;
+}
+.divider-line-dashed {
+  width: 90%;
+  border: 1rpx dashed #e3f2fd;
+   margin-top: 12rpx;
+}
+.goods-content .goods-prices {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.goods-content .goods-prices .goods-prices-l {
+  font-size: 28rpx;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+}
+
+.goods-content .goods-prices .goods-prices-t {
+  font-size: 24rpx;
+  color: rgb(14, 14, 14);
+  text-align: center;
+}
+
+.collage-dlg-copies-num{
+  width: 100%;
+  display: flex;
+  margin-top: 8rpx;
+  padding-bottom: 4rpx;
+  justify-content:center;
+  align-items: center;
+  flex-direction:row; 
+}
+
+ .copies-widget{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  flex-direction:row;
+}
+.collage-copies-btn-ly{
+  width: 100%;
+  height: 96rpx;
+  display: flex;
+  margin-top: 12rpx;
+  margin-bottom: 12rpx;
+  justify-content:center;
+  align-items: center;
+  flex-direction:row; 
+}
+.collage-copies-prices{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  flex-direction:row;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  flex-wrap: nowrap;   
+}
+.copies-label{
+  width: 50%;
+  height: 100%;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
+  display: flex;
+  align-items:center;
+  justify-content:flex-start;
+  color: #F44336;
+  flex-wrap: nowrap;
+  font-weight: normal; 
+  
+}
+.collage-copies-btn{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  flex-direction:row;
+}
+.collage-copies-btn .weui-btn{
+  font-size: 28rpx;
+  letter-spacing: 2rpx;
+  color: white;
+  flex-wrap: nowrap;
+  background-color: #F44336; 
+}
+.copies-widget-add {
+  width: 54rpx;
+  height: 54rpx;
+}
+.copies-widget .weui-dlg-input {
+  width: 78rpx;
+  height: 54rpx;
+  border: 1rpx solid #0091b0;
+}
+.weui-dlg-placeholder-input {
+    text-align: center;
+}
+.copies-widget-sub {
+  width: 54rpx;
+  height: 54rpx;
+}
+.play-content{
+  width: 95%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+  background-color: white;
+}
+.collage-dlg-copies-num{
+  width: 100%;
+  display: flex;
+  margin-top: 8rpx;
+  padding-bottom: 4rpx;
+  justify-content:center;
+  align-items: center;
+  flex-direction:row; 
+}
+.goods-content-ticket {
+  width: 95%;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+}
+.securities-code {
+  font-size: 32rpx;
+  color: rgb(164, 164, 164);
+  margin-bottom: 16rpx;
+}
+
+.skill-item-header {
+  width: 100%;
+  height: 48rpx;
+  flex-direction: row;
+  display: flex;
+  margin: 16rpx;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-item-header .skill-logo {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 24rpx;
+  margin-right: 12rpx;
+}
+
+.skill-item-header .skill-logo image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.skill-item-header .good-title {
+  width: 80%;
+  height: 100%;
+  font-size: 28rpx;
+  color: rgb(11, 11, 11);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.skill-item-header .skill-state {
+  width: 20%;
+  height: 100%;
+  font-size: 28rpx;
+  color: rgb(164, 164, 164);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 32rpx;
+  margin-left: 16rpx;
+}
+.myQrcode{
+  margin-bottom: 16rpx;
+}
+
+
+.merchant-info {
+  width: 95%;
+  height: 256rpx;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+}
+
+.merchant-info .merchant-title {
+  width: 100%;
+  font-size: 24rpx;
+  color: black;
+  font-weight: normal;
+  margin-left: 42rpx;
+  margin-top: 8rpx;
+  margin-bottom: 4rpx;
+}
+
+.merchant-info .merchant-address-content{
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;   
+}
+.merchant-address-content image{
+  width: 36rpx;
+  height: 36rpx;
+  margin-left: 16rpx;
+}
+.merchant-info .merchant-address {
+  font-size: 24rpx;
+  color: rgb(164, 164, 164);
+  font-weight: normal;
+  margin-bottom: 4rpx;
+}
+.merchant-info .contact-merchants-tx {
+  font-size: 24rpx;
+  color: rgb(164, 164, 164);
+  font-weight: normal;
+  margin-left: 32rpx;
+  flex-wrap: wrap;
+}
+
+.merchant-info .contact-merchants .tel-image image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+.merchant-info .contact-merchants .tel-image {
+  width: 50%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  display: flex;
+  margin-right: 16rpx;
+}
+
+.merchant-info .contact-merchants {
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+}
+
+.kindly-reminder {
+  width: 95%;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+}
+
+.kindly-reminder .label-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.kindly-reminder .label-content .label-name {
+  width: 20%;
+  font-size: 24rpx;
+  color: rgb(164, 164, 164);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.kindly-reminder .label-content .label-tx {
+  width: 80%;
+  font-size: 24rpx;
+  color: black;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.order-information {
+  width: 95%;
+  background-color: white;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  margin: 16rpx;
+  border-radius: 24rpx;
+}
+
+.order-information .label-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+
+.order-information .label-content .label-name {
+  width: 20%;
+  height: 36rpx;
+  font-size: 24rpx;
+
+  color: rgb(164, 164, 164);
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.order-information .label-content .label-tx {
+  width: 80%;
+  height: 36rpx;
+  font-size: 24rpx;
+  color: black;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.myQrcode{
+  margin-top: 16rpx;
+  margin-bottom: 16rpx;
+  margin-left: 42rpx;
+}

@@ -1,0 +1,10 @@
+<import src="/templates/selectItem-template.wxml" />
+<template name="selectItemListTemplate">
+      <view class='seletct-list-template'>
+            <view class='inner-container'>
+                  <block wx:for="{{invitList}}" wx:for-item="selectItem" wx:key='index'  wx:for-index="index" data-index="{{index}}">
+                        <template is="selectItemTemplate" data="{{...selectItem}}" />
+                  </block>
+            </view>
+      </view>
+</template>

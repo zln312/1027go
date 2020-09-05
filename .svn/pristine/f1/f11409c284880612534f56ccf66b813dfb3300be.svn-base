@@ -1,0 +1,14 @@
+<template name="follow-with-interest">
+  <cover-view class='logo_v'>
+    <cover-view class='logo_image'>
+      <cover-image src='/images/default-icon.png' class='logo-img'></cover-image>
+    </cover-view>
+    <cover-view class='logo_content'>
+      <cover-view id='live_name'>1027直播go</cover-view>
+      <cover-view id='live_inf'>
+        <cover-view wx:if="{{onLineNum >1000}}">>{{onLineNum/10000}}万人在线</cover-view>
+        <cover-view space="nbsp" wx:else>{{onLineNum}}人在线 ({{total}}人关注)</cover-view>
+      </cover-view>
+    </cover-view>
+  </cover-view>
+</template>

@@ -1,0 +1,6 @@
+<template name="empty_data">
+    <view  hidden='{{!isEmplyData}}' class='empty_view'>
+      <!-- <image src='../../images/ic_no_data.png' ></image> -->
+      <text>暂无数据，敬请关注</text>
+  </view>
+</template>

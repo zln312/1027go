@@ -1,0 +1,139 @@
+<!--pages/optSelection/opt.wxml-->
+<import src="../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<view class="container_page">
+  <view class="divider-line"></view>
+  <scroll-view scroll-y="true" class="scroll-view-content" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll">
+    <view class="goods-content">
+      <view class="collage-dlg-goods-img">
+        <image src='{{collageObj.photourl||defaultLogo}}' mode='aspectFit' />
+      </view>
+      <view class="collage-dlg-goods-text">
+        <text class="goods-name" space="nbsp">{{collageObj.goodsname}}</text>
+        <text class="goods-quotas" space="nbsp">拼团份数：{{collageObj.quotas}}</text>
+        <text class="goods-quotas" space="nbsp">每份抵扣：￥{{collageObj.bondamount}}</text>
+        <text class="goods-quotas" space="nbsp" wx:if="{{collageObj.state == 0}}">可购数量：{{collageObj.quotas}}</text>
+        <text class="goods-quotas" space="nbsp" wx:else>购买数量：{{orderDetails.quantity}}</text>
+        <text class="goods-quotas" space="nbsp"  hidden="{{isHidenInf}}">周一至周日 | 免预约</text>
+      </view>
+      <view class="goods-prices">
+        <view class="goods-prices-l">￥{{collageObj.totalamount}}</view>
+        <view class="goods-prices-t">团购价</view>
+      </view>
+    </view>
+    <view class="play-content" hidden="{{!isHidenInf}}">
+      <view class="collage-dlg-copies-num">
+        <view class="copies-widget">
+          <image src='../../images/sub.png' bindtap='collageSubTap' class='copies-widget-sub'></image>
+          <input class="weui-dlg-input" value='{{inputDlgValue}}' focus='{{true}}' bindinput='inputDlgChange' type='number' confirm-type='done' adjust-position="{{true}}" style='text-align:center' disabled="{{enable}}" placeholder-class="weui-dlg-placeholder-input"
+            placeholder="1" />
+          <image src='../../images/add.png' bindtap='collageAddTap' class='copies-widget-add'></image>
+        </view>
+        <view class="copies-label">已抵扣({{preferential}}元)</view>
+      </view>
+      <view class="collage-copies-btn-ly">
+        <view class="collage-copies-btn">
+          <button class="weui-btn" type="primary" disabled="{{enable}}" data-index="{{index}}" bindtap="collageShoppingTap">立即购买</button>
+        </view>
+        <view class="collage-copies-prices">
+         团购补差:￥{{totalPrices}}元
+        </view>
+      </view>
+    </view>
+    <view class="goods-content-ticket" hidden="{{isHidenInf}}">
+      <view class="skill-item-header">
+        <view class="skill-logo">
+          <image src='../../images/ticket.png' mode='aspectFit'/>
+        </view>
+        <view class="good-title">消费券</view>
+        <view class="skill-state" wx:if="{{collageObj.state == 1}}">已支付</view>
+        <view class="skill-state" wx:elif="{{collageObj.state == 3}}">已消费</view>
+      </view>
+      <view class="divider-line-dashed"></view>
+      <text class="securities-code" space="nbsp" hidden="{{true}}"></text>
+      <canvas style="width: 200px; height: 200px;" canvas-id="myQrcode" class="myQrcode"></canvas>
+    </view>
+    <view class="merchant-info"  hidden="{{isHidenInf}}">
+      <view class="skill-item-header">
+        <view class="skill-logo">
+          <image src='../../images/merchant.png' mode='aspectFit' />
+        </view>
+        <view class="good-title">商家信息</view>
+      </view>
+      <view class="divider-line-dashed"></view>
+      <text class="merchant-title">测试商品-{{collageObj.goodsname}}</text>
+      <view class="merchant-address-content">
+      <image src='../../images/address.png' mode="aspectFit" ></image>
+      <text class="merchant-address">{{collageObj.address}}</text>
+      </view>        
+      <view class="divider-line-dashed"></view>
+      <view class="contact-merchants">
+        <text class="contact-merchants-tx">咨询订座/发票/菜品/使用规则等问题</text>
+        <view class="tel-image" bindtap="callTellphone">
+          <image src='../../images/icon_tel.png' mode='aspectFit'  />
+        </view>
+      </view>
+    </view> 
+
+   <view class="kindly-reminder"  hidden="{{isHidenInf}}">
+      <view class="skill-item-header">
+        <view class="skill-logo">
+          <image src='../../images/kindly.png' mode='aspectFit' />
+        </view>
+        <view class="good-title">温馨提示</view>
+      </view>
+      <view class="divider-line-dashed"></view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">  有效期：</text>
+        <text class="label-tx" space="nbsp">2018.1.1 至 2020.1.30 23：59（周末、法定节假日通用）</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">使用时间：</text>
+        <text class="label-tx" space="nbsp">早上 9:00- 晚上 21:00</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">使用规则：</text>
+        <text class="label-tx" space="nbsp">无需预约，消费高峰可能需要等位\n商家提高免费WiFi\停车收费标准:详情咨询商家</text>
+      </view>
+    </view>
+
+    <view class="order-information"  hidden="{{isHidenInf}}">
+      <view class="skill-item-header">
+        <view class="skill-logo">
+          <image src='../../images/order.png' mode='aspectFit' />
+        </view>
+        <view class="good-title">订单详情</view>
+      </view>
+      <view class="divider-line-dashed"></view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">订  单  号：</text>
+        <text class="label-tx" space="nbsp">{{orderDetails.orderid}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">手  机  号：</text>
+        <text class="label-tx" space="nbsp">{{phoneNum}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">付款时间：</text>
+        <text class="label-tx" space="nbsp">{{orderDetails.updatetime}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">团购数量：</text>
+        <text class="label-tx" space="nbsp">{{orderDetails.quantity}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">团  购  价：</text>
+        <text class="label-tx" space="nbsp">￥{{collageObj.totalamount}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">每份抵扣：</text>
+        <text class="label-tx" space="nbsp">￥{{collageObj.bondamount}}</text>
+      </view>
+      <view class="label-content">
+        <text class="label-name" space="nbsp">总    价：</text>
+        <text class="label-tx" space="nbsp"> ￥{{orderDetails.quantity*collageObj.totalamount}}元</text>
+      </view>      
+    </view>   
+  </scroll-view>
+ 
+</view>

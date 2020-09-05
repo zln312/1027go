@@ -1,0 +1,15 @@
+@import '../my-order-list/orderList.wxss';
+.container_page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  justify-content: center;
+  align-items: center;
+}
+.divider-line {
+  width: 100%;
+  min-height: 2rpx;
+  background-color: rgb(244, 244, 244);
+}

@@ -1,0 +1,25 @@
+.give_thumbs_up {
+  width: 96rpx;
+  height: 96rpx;
+  position: fixed;
+  z-index: 3;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 24%;
+  right: 0rpx;
+}
+
+.give_thumbs_up cover-image {
+  width: 64rpx;
+  height: 64rpx;
+}
+
+
+.give_thumbs_up cover-view {
+  font-size: 24rpx;
+  
+  color: aliceblue;
+  
+}

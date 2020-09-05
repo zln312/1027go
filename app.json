@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/advert/advert",
+    "pages/live-room-chat/index",
+    "pages/verifyMobile/verify-mobile",
+    "pages/logs/logs",
+    "pages/authorize/authorize",
+    "pages/webview/webview",
+    "pages/BoundbankCard/bound-card",
+    "pages/optSelection/optimal-select-list",
+    "pages/opt_winning/opt_winning",
+    "pages/collageShopping/collageShoppingList",
+    "pages/collageShoppingDetail/collageShoppingDetail",
+    "pages/collageList/collageList",
+    "pages/opt_winning_detail/opt_winning_detail",
+    "pages/businessRelation/businessRelation",
+    "pages/mercht_landing/mercht_landing",
+    "pages/orderList/orderList",
+    "pages/mercht_landing_details/mercht_landing_details",
+    "pages/collageOrderDetail/collageOrderDetail",
+    "pages/order-pay/order-pay"
+  ],
+  "subPackages": [
+    {
+      "root": "page/personal-center",
+      "pages": [
+        "pages/my-order-list/orderList",
+        "pages/skill-record-details/skill-record-details",
+        "pages/merchant/merchantCert",
+        "pages/merchant-centre/merchant-centre",
+        "pages/my_balance/my_balance",
+        "pages/my-bill/myBill",
+        "pages/persion-center/persion-center",
+        "pages/privacyPolicy/privacyPolicy",
+        "pages/serviecRegulations/serviecRegulations",
+        "pages/withdrawdeposit/withdrawdeposit",
+        "pages/custom-service/customService",
+        "pages/clause-page/clause-page",
+        "pages/receiving-address/receiving-address",
+        "pages/receiving-address-list/receiving-address-list",
+        "pages/user-refund-edit/user-refund-edit",
+        "pages/user-refund-details/user-refund-details",
+        "pages/merchant-refund-details/merchant-refund-details",
+        "pages/merchant-refund-explain/merchant-refund-explain",
+        "pages/merchant-refund-list/merchant-refund-list",
+        "pages/my-order-merchant-list/my-order-merchant-list"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "1027直播go",
+    "navigationBarTextStyle": "black",
+    "onReachBottomDistance": 50
+  },
+  "networkTimeout": {
+    "request": 1000000,
+    "connectSocket": 100000,
+    "uploadFile": 100000,
+    "downloadFile": 100000
+  },
+  "sitemapLocation": "sitemap.json",
+  "debug": false,
+  "workers": "workers"
+}

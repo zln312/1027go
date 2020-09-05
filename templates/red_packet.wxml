@@ -1,0 +1,19 @@
+<template name="redPacket">
+  <cover-view class="modal-mask" bindtap="hideRedPModal" catchtouchmove="preventRedPTouchMove" wx:if="{{isRed_packet}}"></cover-view>
+  <cover-view class="modal-red-packet-dialog" wx:if="{{isRed_packet}}">
+    <cover-view class="red-packet-dlg-content">
+      <cover-view class="red-packet-header">
+        <cover-image bindtap="bindViewTap" class="red-userinfo-avatar" src="{{avatarurl || defaultLogoUrl}}" mode="cover"></cover-image>
+        <cover-view class="userinfo-nickname">{{nickname}}</cover-view>
+        <cover-view class="userinfo-label">发了一个红包</cover-view>
+        <cover-view class="red-blessing">{{blessingword}}</cover-view>
+      </cover-view>
+    </cover-view>
+      <cover-view class="red-packet-open" >
+        <cover-image src='../../images/red-open.png' class="img-open" data-index="{{index}}" bindtap="openRedPacket"></cover-image>
+      </cover-view>   
+
+    <cover-image src='../../images/popup-close.png' bindtap="onRedPacketCancel" class="img-cancel"></cover-image>
+
+  </cover-view>
+</template>

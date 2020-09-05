@@ -1,0 +1,174 @@
+/* components/default-list/default-list.wxss */
+
+.defaultPage-image {
+	width: 132rpx;
+	height: 124rpx;
+}
+
+.center {
+	min-height: 100vh;
+}
+
+.bg-F2F4F5 {
+  background-color: #F2F4F5;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.min-height-100vh {
+  min-height: 100vh;
+}
+.pd-t-40 {
+  padding-top: 40rpx;
+}
+.container-fluid {
+  padding-right: 40rpx;
+  padding-left: 40rpx;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/*************/
+.justify-content-start {
+  justify-content: flex-start;
+}
+.justify-content-end {
+  justify-content: flex-end;
+}
+.justify-content-center {
+  justify-content: center;
+}
+.justify-content-between {
+  justify-content: space-between;
+}
+.justify-content-around {
+  justify-content: space-around;
+}
+
+/*************/
+.mg-t-0 {
+  margin-top: 0;
+}
+.mg-t-5 {
+  margin-top: 5rpx;
+}
+.mg-t-10 {
+  margin-top: 10rpx;
+}
+.mg-t-15 {
+  margin-top: 15rpx;
+}
+.mg-t-20 {
+  margin-top: 20rpx;
+}
+.mg-t-24 {
+  margin-top: 24rpx;
+}
+.mg-t-25 {
+  margin-top: 25rpx;
+}
+.mg-t-30 {
+  margin-top: 30rpx;
+}
+.mg-t-40 {
+  margin-top: 40rpx;
+}
+.mg-t-240 {
+  margin-top: 240rpx;
+}
+
+/*************/
+.mg-b-0 {
+  margin-bottom: 0;
+}
+.mg-b-5 {
+  margin-bottom: 5rpx;
+}
+.mg-b-10 {
+  margin-bottom: 10rpx;
+}
+.mg-b-15 {
+  margin-bottom: 15rpx;
+}
+
+.mg-b-16 {
+  margin-bottom: 16rpx;
+}
+
+.mg-b-20 {
+  margin-bottom: 20rpx;
+}
+.mg-b-25 {
+  margin-bottom: 25rpx;
+}
+.mg-b-30 {
+  margin-bottom: 30rpx;
+}
+.mg-b-40 {
+  margin-bottom: 40rpx;
+}
+.mg-b-48 {
+  margin-bottom: 48rpx;
+}
+
+
+.font-size-12 {
+  font-size: 12rpx;
+}
+.font-size-14 {
+  font-size: 14rpx;
+}
+.font-size-16 {
+  font-size: 16rpx;
+}
+.font-size-18 {
+  font-size: 18rpx;
+}
+.font-size-20 {
+  font-size:  20rpx;
+}
+.font-size-24 {
+  font-size:  24rpx;
+}
+.font-size-26 {
+  font-size:  26rpx;
+}
+.font-size-28 {
+  font-size:  28rpx;
+}
+.font-size-32 {
+  font-size:  32rpx;
+}
+
+.color-fff {
+  color: #fff;
+}
+.color-000 {
+  color: #000;
+}
+.color-eb4141 {
+  color: #eb4141;
+}
+.color-626466 {
+  color: #626466;
+}
+.color-939699 {
+  color: #939699;
+}
+.color-C4C8CC {
+  color: #C4C8CC;
+}
+.color-313233 {
+  color: #313233;
+}
+
+.color-F53B3B {
+  color: #F53B3B;
+}
+
+.pd-t-240  {
+  padding-top: 120px;
+}

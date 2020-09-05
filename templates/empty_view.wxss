@@ -1,0 +1,16 @@
+.empty_view{
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+
+}
+.empty_view text{
+  font:32rpx;
+  color: #666;
+}
+.empty_view image{
+  width: 250rpx;
+  height: 250rpx;
+}

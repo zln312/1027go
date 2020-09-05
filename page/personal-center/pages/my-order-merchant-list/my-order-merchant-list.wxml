@@ -1,0 +1,42 @@
+<!--page/personal-center/pages/my-order-merchant-list/my-order-merchant-list-->
+<!--page/personal-center/pages/merchant-refund-details/merchant-refund-details.wxml-->
+
+
+<view class="bg-F0F2F5 min-height-100vh pd-t-40 container-fluid">
+
+	<view wx:for="{{orderList}}">
+		<view wx:if='{{item.status===2}}' class=" br-16 bg-fff mg-b-40">
+			<view class="row align-items-center pd-b-24 pd-t-24">
+				<view class="bg-F6B352 mg-r-24 flex-shrink-0" style="width:6rpx; height:28rpx;"></view>
+				<view class="flex-fill f-s-24">订单号：{{item.orderId}}</view>
+			</view>
+
+
+			<view class="row align-items-center font-size-28">
+				<view class="row flex-nowrap align-items-start mg-l-r-20 pd-t-24 pd-b-24  bo-t-F0F2F5" style="width:100%">
+					<image class="img-01 flex-shrink-0" src="{{item.photoUrl}}"></image>
+					<view class="flex-fill row  mg-l-20">
+						<view class="col-14 f-s-28">{{item.storeName}}</view>
+						<view class="col-10 text-right font-weight">
+							<view>¥ {{item.price}}</view>
+							<view class="color-626466 font-size-24">含快递费：¥{{item.postage}}</view>
+						</view>
+					</view>
+				</view>
+			</view>
+
+			<view class="row align-items-center font-size-28">
+				<view class="row flex-nowrap align-items-center mg-l-r-20  mg-b-20 pd-b-24 bo-b-F0F2F5">
+					<image class="img-03 flex-shrink-0" src="/images/refund/image-06.png"></image>
+					<view class="mg-l-20 color-626466 font-size-24">{{item.name}} {{item.phone}} {{item.address}}</view>
+				</view>
+			</view>
+
+			<view class="row align-items-center justify-content-end font-size-28 pd-b-24 ">
+				<button class=" font-size-28 but-F6B352 mg-r-25" data-oid="{{item.orderId}}" catchtap="viewDetails">确认发货</button>
+			</view>
+		</view>
+	</view>
+		<default-list isShow="{{!orderList[0]}}"></default-list>
+
+</view>

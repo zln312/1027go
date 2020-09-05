@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "pulltorefresh-view": "../../../../components/wx-pulltorefresh-view/wx-pulltorefresh-view",
+    "default-list":"/components/default-list/default-list"
+  },
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black"
+}

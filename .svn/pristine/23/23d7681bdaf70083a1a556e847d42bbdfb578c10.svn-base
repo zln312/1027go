@@ -1,0 +1,13 @@
+<!--pages/businessRelation/businessRelation.wxml-->
+<import src="../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<view class="container_page">
+  <view class="divider-line"></view>
+  <view class="business-content">
+        <image src='../../images/default-logo.png' mode='scaleToFill'></image>
+  </view>
+  <view class="business-footer">
+      <view>贵阳广播电视台</view>
+      <view>联系电话：13608518512</view>
+  </view>
+</view>

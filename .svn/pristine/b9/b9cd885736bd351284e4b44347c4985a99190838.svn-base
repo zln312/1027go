@@ -1,0 +1,60 @@
+<!--pages/optSelection/opt.wxml-->
+<import src="../../components/appToast/appToast.wxml" />
+<template is="toast" data="{{ ..._toast_ }}" />
+<view class="container_page">
+  <view class="divider-line"></view>
+  <scroll-view 
+  scroll-x="true" 
+  class="optimal-content"
+  bindscrolltolower="onReachBottom"
+  lower-threshold='100'>
+   
+      <block wx:for-items="{{detailsList}}" wx:key="index">
+        <view class="opt-item-content" data-index="index" wx:for-item="item" wx:for-index="index" wx:key="index">
+          <view class="skill-item-header" bindtap='listTapClick' data-index="{{index}}">
+            <view class="skill-logo">
+            <image src='../../images/group-buying.png' mode='aspectFit' />
+            </view>
+            <text class="good-title" space="nbsp">拼团购 (第{{item.periods}}期)</text>
+            <view class="skill-state"  wx:if="{{item.state == 0}}">待付款</view>
+            <view class="skill-state"  wx:elif="{{item.state == 1}}">已支付</view>
+            <view class="skill-state" wx:elif="{{item.state == 3}}">已消费</view>
+             <view class="skill-state"  wx:else>已过期</view>
+          </view>
+          <view class="divider-line"></view>
+          <view class="collage-dlg-goods">
+              <view class="collage-dlg-goods-img">
+                    <image src='{{url||defaultLogo}}' mode='aspectFit' />
+              </view>
+              <view class="collage-dlg-goods-text">
+                    <text class="goods-name" space="nbsp">{{item.goodsname}}</text> 
+                    <text class="goods-prices" space="nbsp">团  购  价：￥{{item.totalamount}}</text> 
+                    <text class="goods-quotas" space="nbsp">拼团份数：{{item.quotas}}</text> 
+                    <text class="goods-quotas" space="nbsp">每份抵扣：￥{{item.bondamount}}</text>
+                    <text class="goods-quotas" space="nbsp">可购数量：{{item.quotas}}</text>                
+              </view>                
+          </view> 
+           <view class="divider-line-dashed"></view> 
+             <view class="collage-copies-btn-ly">            
+                  <view class="collage-copies-btn" wx:if="{{item.state ==0}}">
+                       <button class="weui-btn" type="primary" data-index="{{index}}" bindtap="collageShoppingTap">立即购买</button>
+                  </view>
+                   <view class="collage-copies-btn" wx:elif="{{item.state ==1}}">
+                       <button class="weui-btn" type="primary" data-index="{{index}}" bindtap="collageShoppingTap">已支付</button>
+                  </view> 
+                   <view class="collage-copies-btn" wx:elif="{{item.state ==3}}">
+                       <button class="weui-btn" type="primary" data-index="{{index}}" bindtap="collageShoppingTap">已取货</button>
+                  </view>  
+                   <view class="collage-copies-btn" wx:else>
+                       <button class="weui-btn" type="primary" data-index="{{index}}" bindtap="collageShoppingTap">已过期</button>
+                  </view>  
+             </view>                        
+        </view>
+      </block>
+   
+  </scroll-view>
+  <view class="weui-loadmore" hidden="{{isHideLoadMore}}">
+    <view class="weui-loading"></view>
+    <view class="weui-loadmore__tips">正在加载</view>
+  </view>
+</view>
